@@ -7,44 +7,46 @@ export default function ProductList({ products }) {
 
   return (
     <div className="container mt-5">
-    </div>  
-  );
+      <h2 className="mb-4 text-center">Nuestros Productos Destacados</h2>
+      
+      <div className="row">
+        {products.map((p) => (
+          <div key={p.id} className="col-12 col-md-6 col-lg-4 mb-4">
+            
+            <div className="card h-100 shadow-sm border-0">
+              
+              <div style={{ height: '200px', overflow: 'hidden', padding: '20px' }} className="d-flex align-items-center justify-content-center bg-light">
+                <img
+                  src={p.imagen}
+                  alt={p.nombre}
+                  style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+                />
+              </div>
 
-  // return (
-  //   <div className="container mt-4">
-  //     <h2 className="mb-3">Listado de Productos Informáticos</h2>
-  //     <table className="table table-striped table-bordered align-middle text-center">
-  //       <thead className="table-dark">
-  //         <tr>
-  //           <th>Código</th>
-  //           <th>Imagen</th>
-  //           <th>Descripción</th>
-  //           <th>Precio (€)</th>
-  //           <th>Disponible</th>
-  //         </tr>
-  //       </thead>
-  //       <tbody>
-  //         {products.map((p) => (
-  //           <tr key={p.id}>
-  //             <td>{p.id}</td>
-  //             <td>
-  //               <img
-  //                 src={p.imagen}
-  //                 alt={p.nombre}
-  //                 className="product-img img-thumbnail"
-  //               />
-  //             </td>
-  //             <td>{p.nombre}</td>
-  //             <td>{p.precio.toFixed(2)}</td>
-  //             <td>
-  //               <span className={`badge ${p.enStock ? 'bg-success' : 'bg-danger'}`}>
-  //                 {p.enStock ? 'Sí' : 'No'}
-  //               </span>
-  //             </td>
-  //           </tr>
-  //         ))}
-  //       </tbody>
-  //     </table>
-  //   </div>
-  // );
+              <div className="card-body d-flex flex-column">
+                <h5 className="card-title">{p.nombre}</h5>
+                
+                <p className="card-text text-primary fw-bold fs-4">
+                  {p.precio.toFixed(2)} €
+                </p>
+
+                <div className="mb-3">
+                    <span className={`badge ${p.enStock ? 'bg-success' : 'bg-secondary'}`}>
+                        {p.enStock ? 'En Stock' : 'Agotado'}
+                    </span>
+                </div>
+
+                <button 
+                  className="btn btn-dark mt-auto w-100" 
+                  disabled={!p.enStock}
+                >
+                  {p.enStock ? 'Añadir al Carrito' : 'Sin Stock'}
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
