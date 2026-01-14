@@ -6,12 +6,24 @@ import { catalog } from './data/catalog';
 
 export default function App() {
   const [products, setProducts] = useState(catalog);
+
+  const [carrito, setCarrito] = useState([]);
+
+  const agregarAlCarrito = (producto) => {
+    setCarrito([...carrito, producto]);
+  };
+
   return (
     <div className="app d-flex flex-column min-vh-100">
-      <Header />
+      <Header totalCarrito={carrito.length}/>
+
       <main className='flex-grow-1'>
-        <ProductList products={catalog} />
+        <ProductList 
+          products={catalog}
+          addToCart={agregarAlCarrito}
+        />
       </main>
+
       <Footer/>
     </div>
   );

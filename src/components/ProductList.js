@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ProductList({ products }) {
+export default function ProductList({ products, addToCart }) {
   if (!products || products.length === 0) {
     return <p className="text-center text-muted mt-3">No hay productos disponibles.</p>;
   }
@@ -39,6 +39,7 @@ export default function ProductList({ products }) {
                 <button 
                   className="btn btn-dark mt-auto w-100" 
                   disabled={!p.enStock}
+                  onClick={()=> addToCart(p)}
                 >
                   {p.enStock ? 'Añadir al Carrito' : 'Sin Stock'}
                 </button>
