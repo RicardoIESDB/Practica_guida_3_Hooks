@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProductList from './components/ProductList';
+import Newsletter from './components/Newsletter';
 import { catalog } from './data/catalog';
 
 export default function App() {
   const [products, setProducts] = useState(catalog);
-
   const [carrito, setCarrito] = useState([]);
 
   const agregarAlCarrito = (producto) => {
@@ -15,16 +15,16 @@ export default function App() {
 
   return (
     <div className="app d-flex flex-column min-vh-100">
-      <Header totalCarrito={carrito.length}/>
+      <Header totalCarrito={carrito.length} />
 
       <main className='flex-grow-1'>
-        <ProductList 
+        <ProductList
           products={catalog}
           addToCart={agregarAlCarrito}
         />
       </main>
-
-      <Footer/>
+      <Newsletter />
+      <Footer />
     </div>
   );
 }
