@@ -1,13 +1,13 @@
 import React from 'react';
 import Card from './Cards';
 
-export default function ProductList({ products, addToCart }) {
+export default function ProductList({ products, addToCart}) {
   if (!products || products.length === 0) {
     return <p className="text-center text-muted mt-3">No hay productos disponibles.</p>;
   }
 
   return (
-    <div className="container mt-5">
+    <div className="mt-4">
       <h2 className="mb-4 text-center">Nuestros Productos Destacados</h2>
 
       <div className="row">
@@ -31,7 +31,7 @@ export default function ProductList({ products, addToCart }) {
                 {p.precio.toFixed(2)} €
               </p>
               <div className='mb-3'>
-                <span className={"badge ${p.enStock ? 'bg-success' : 'bg-secondary'}"}>
+                <span className={`badge ${p.enStock ? 'bg-success' : 'bg-secondary'}`}>
                   {p.enStock ? 'En Stock' : 'Agotado'}
                 </span>
               </div>
