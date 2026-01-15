@@ -15,10 +15,10 @@ export default function Newsletter() {
     };
 
     return (
-        <div className="bg-light p-4 mt-5">
+        <div className="py-5 mt-5" style={{ backgroundColor: '#f5f0e1' }}>
             <div className="container text-center">
-                <h3>Suscríbete a nuestras novedades</h3>
-                <p>Recibe las últimas noticias y ofertas directamente en tu correo.</p>
+                <h3 style={{ color: '#6F4E37' }}>Novedades de Argentina Cafè</h3>
+                <p className="text-muted">Suscríbete para recibir promos en desayunos y meriendas.</p>
 
                 <div className="row justify-content-center mt-4">
                     <div className="col-md-6 d-flex gap-2">
@@ -26,13 +26,14 @@ export default function Newsletter() {
                             ref={inputRef}
                             type="email"
                             className="form-control"
-                            placeholder="Introduce tu correo electrónico..."
+                            placeholder="Tu correo para ofertas deliciosas..."
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                        >
-                        </input>
+                        />
+
                         <button
-                            className="btn btn-primary"
+                            className="btn text-white"
+                            style={{ backgroundColor: '#6F4E37' }}
                             onClick={handleSubscribe}
                         >
                             Suscribirse

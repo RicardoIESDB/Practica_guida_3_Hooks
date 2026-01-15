@@ -38,7 +38,7 @@ export default function SearchBar({
       </div>
 
       <div className="form-text text-muted mt-2 ps-1">
-        Filtra en tiempo real. Ejemplos: “SSD”, “P1001”, “Lenovo”.
+        Filtra en tiempo real. Ejemplos: “Medialunas”, “Mate”, “alfajor”.
       </div>
     </div>
   );
